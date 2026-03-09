@@ -19,12 +19,4 @@ This module would not be possible without the excellent work of the original dev
 - [BaltiApps](https://github.com/BaltiApps) for the foundational Pixelify logic.
 - [RevealedSoulEven](https://github.com/RevealedSoulEven) for the DCIM backup blocking fix.
 
-## 📦 Installation
-
-1.  Root your device and install an Xposed framework (e.g., LSPosed).
-2.  Download the `app-release.apk` (v1.0) from the [Releases](https://github.com/Akash-Sriram/PixelSpoof-Ext/releases) area.
-3.  Install the APK and enable it in your Xposed manager.
-4.  Ensure **Google Photos** is in the module's scope.
-5.  Restart Google Photos or reboot your device.
-
 ---
