@@ -12,8 +12,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 class DeviceSpoofer: IXposedHookLoadPackage {
 
     private fun log(message: String){
-        XposedBridge.log("PixelifyGooglePhotos: $message")
-        Log.d("PixelifyGooglePhotos", message)
+        XposedBridge.log("PixelSpoofExt: $message")
+        Log.d("PixelSpoofExt", message)
     }
 
     private val pref by lazy {

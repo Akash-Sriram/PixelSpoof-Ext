@@ -14,7 +14,7 @@ import io.github.neonorbit.dexplore.Dexplore
 
 class PhotosFixSpoofer : IXposedHookLoadPackage {
 
-    private val TAG = "PixelifyGooglePhotos (XposedPhotosFIX)"
+    private val TAG = "PixelSpoofExt"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
         if (lpparam?.packageName != Constants.PACKAGE_NAME_GOOGLE_PHOTOS) return
