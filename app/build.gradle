@@ -11,8 +11,8 @@ android {
         applicationId = "com.pixelspoof.ext"
         minSdk = 21
         targetSdk = 35
-        versionCode = 5
-        versionName = "4.1"
+        versionCode = 1
+        versionName = "1.0"
     }
 
     signingConfigs {

@@ -1,25 +1,31 @@
-# PixelSpoof Ext
+# PixelSpoof Ext (v1.0)
 
-**PixelSpoof Ext** is a specialized Xposed module designed to unlock **Unlimited Original Quality storage** in Google Photos by spoofing your device as a **Google Pixel XL**. It provides a lightweight, stealthy, and effective way to bypass storage restrictions and manage backups on non-Pixel Android devices.
+**PixelSpoof Ext** is a specialized Xposed module that combines the best features of two powerful projects to provide a premium Google Photos experience on non-Pixel devices.
+
+This project is a combo of:
+*   [**Pixelify-Google-Photos**](https://github.com/BaltiApps/Pixelify-Google-Photos): Providing core device identity spoofing (Pixel XL).
+*   [**XposedPhotosFIX**](https://github.com/RevealedSoulEven/XposedPhotosFIX): Providing the critical DCIM backup control logic.
 
 ## 🚀 Key Features
 
-*   **Pixel XL Identity Spoofing**: Intercepts system calls to present your device as a genuine Google Pixel XL, which is specifically recognized by Google Photos for permanent, unlimited "Original Quality" backups.
-*   **DCIM Backup Control**: Removes the "privileged" status of the DCIM (Camera) folder. This allows you to prevent Google Photos from forcing backups of your primary gallery, giving you total control over what gets uploaded.
-*   **Stealth & Integration**: Operates under a discrete system-service identity (`com.pixelspoof.ext`) to avoid detection and blend seamlessly into the Android OS.
-*   **Dynamic Compatibility**: Employs advanced code-scanning (`dexplore`) to dynamically locate and hook the necessary methods within Google Photos, ensuring the module remains functional across app updates.
+*   **Pixel XL Identity Spoofing**: Spoofs your device as a **Google Pixel XL (2016)**, which is the only profile that still offers **unlimited "Original Quality" backups** in Google Photos.
+*   **DCIM Backup Control**: Removes the "privileged" status of the DCIM directory, allowing you to explicitly prevent Google Photos from forcing backups of your camera folder.
+*   **Stealth Operation**: Disguised as a system service (`com.pixelspoof.ext`) to avoid detection and maintain a clean system environment.
+*   **Dynamic Scanning**: Uses `dexplore` to dynamically locate and hook methods, ensuring resilience against Google Photos app updates.
 
-## 🛠 Project Purpose
+## 🛠 Credits & Inspiration
 
-While many "Pixelify" tools attempt general spoofing, **PixelSpoof Ext** focuses specifically on the **Pixel XL (2016)** profile. This is the only device profile that still offers unlimited backup in **Original Quality**, making this module a powerful tool for photographers and power users.
+This module would not be possible without the excellent work of the original developers:
+- [BaltiApps](https://github.com/BaltiApps) for the foundational Pixelify logic.
+- [RevealedSoulEven](https://github.com/RevealedSoulEven) for the DCIM backup blocking fix.
 
 ## 📦 Installation
 
-1.  Root your device and install a modern Xposed framework (e.g., LSPosed).
-2.  Download the `app-release.apk` from the [Releases](https://github.com/Akash-Sriram/PixelSpoof-Ext/releases) area.
-3.  Install the APK.
-4.  Enable **PixelSpoof Ext** in your Xposed manager and ensure **Google Photos** is selected in the scope.
-5.  Force stop Google Photos or reboot your device to apply the changes.
+1.  Root your device and install an Xposed framework (e.g., LSPosed).
+2.  Download the `app-release.apk` (v1.0) from the [Releases](https://github.com/Akash-Sriram/PixelSpoof-Ext/releases) area.
+3.  Install the APK and enable it in your Xposed manager.
+4.  Ensure **Google Photos** is in the module's scope.
+5.  Restart Google Photos or reboot your device.
 
 ---
-*Created and maintained by [Akash Sriram](https://github.com/Akash-Sriram).*
+*Maintained by [Akash Sriram](https://github.com/Akash-Sriram).*
