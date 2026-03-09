@@ -28,4 +28,3 @@ This module would not be possible without the excellent work of the original dev
 5.  Restart Google Photos or reboot your device.
 
 ---
-*Maintained by [Akash Sriram](https://github.com/Akash-Sriram).*
