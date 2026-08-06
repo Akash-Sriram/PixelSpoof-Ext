@@ -27,13 +27,34 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
+      - name: Decode Keystore
+        if: ${{ secrets.SIGNING_KEY != '' }}
+        env:
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY }}
+        run: |
+          echo "$ENCODED_STRING" | base64 --decode > release.keystore
+        shell: bash
+
       - name: Build APKs
-        run: ./gradlew assembleDebug assembleRelease
+        run: |
+          if [ -f release.keystore ]; then
+            export RELEASE_STORE_FILE="../release.keystore"
+            export RELEASE_STORE_PASSWORD="${{ secrets.SIGNING_STORE_PASSWORD }}"
+            export RELEASE_KEY_ALIAS="${{ secrets.SIGNING_KEY_ALIAS }}"
+            export RELEASE_KEY_PASSWORD="${{ secrets.SIGNING_KEY_PASSWORD }}"
+          fi
+          ./gradlew assembleDebug assembleRelease
+        shell: bash
 
       - name: Rename APKs
         run: |
           mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/PixelSpoof-Ext-debug.apk
-          mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/PixelSpoof-Ext-release-unsigned.apk || true
+          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/PixelSpoof-Ext-release.apk
+          else
+            mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/PixelSpoof-Ext-release-unsigned.apk
+          fi
+        shell: bash
 
       - name: Get Tag Name
         id: tag_name
@@ -51,6 +72,7 @@ jobs:
           tag_name: ${{ steps.tag_name.outputs.tag }}
           files: |
             app/build/outputs/apk/debug/PixelSpoof-Ext-debug.apk
+            app/build/outputs/apk/release/PixelSpoof-Ext-release.apk
             app/build/outputs/apk/release/PixelSpoof-Ext-release-unsigned.apk
           draft: false
           prerelease: ${{ steps.tag_name.outputs.tag == 'latest' }}
