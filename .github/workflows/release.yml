@@ -30,7 +30,7 @@ jobs:
       - name: Decode Keystore
         if: secrets.SIGNING_KEY != ''
         env:
-          ENCODED_STRING: ${{ secrets.SIGNING_KEY }}
+          ENCODED_STRING: "${{ secrets.SIGNING_KEY }}"
         run: |
           echo "$ENCODED_STRING" | base64 --decode > release.keystore
         shell: bash
@@ -78,4 +78,4 @@ jobs:
           prerelease: "${{ steps.tag_name.outputs.tag == 'latest' }}"
           fail_on_unmatched_files: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
