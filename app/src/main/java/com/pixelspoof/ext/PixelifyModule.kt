@@ -7,11 +7,11 @@ import io.github.libxposed.api.XposedModuleInterface
 class PixelifyModule : XposedModule() {
 
     companion object {
-        const val TAG = "Pixelify"
+        const val TAG = "PixelSpoof"
     }
 
     override fun onModuleLoaded(params: XposedModuleInterface.ModuleLoadedParam) {
-        Log.d(TAG, "Pixelify Infinity module loaded (Headless Mode)")
+        Log.d(TAG, "PixelSpoof-Ext module loaded (Headless Mode)")
     }
 
     override fun onPackageLoaded(params: XposedModuleInterface.PackageLoadedParam) {

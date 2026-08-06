@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Pixelify Infinity"
+rootProject.name = "PixelSpoof-Ext"
 include(":app")

@@ -126,7 +126,6 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
         buildConfig = true
     }
 
@@ -212,9 +211,6 @@ gradle.taskGraph.whenReady {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation("org.luckypray:dexkit:2.2.0")
 
     compileOnly(libs.libxposed.api)
