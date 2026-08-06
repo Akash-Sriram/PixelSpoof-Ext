@@ -37,7 +37,7 @@ jobs:
       - name: Build APKs
         run: |
           if [ -f release.keystore ]; then
-            export RELEASE_STORE_FILE="../release.keystore"
+            export RELEASE_STORE_FILE="release.keystore"
             export RELEASE_STORE_PASSWORD="${{ secrets.SIGNING_STORE_PASSWORD }}"
             export RELEASE_KEY_ALIAS="${{ secrets.SIGNING_KEY_ALIAS }}"
             export RELEASE_KEY_PASSWORD="${{ secrets.SIGNING_KEY_PASSWORD }}"
