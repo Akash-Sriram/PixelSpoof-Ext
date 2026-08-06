@@ -69,12 +69,13 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.tag_name.outputs.tag }}
+          tag_name: "${{ steps.tag_name.outputs.tag }}"
           files: |
             app/build/outputs/apk/debug/PixelSpoof-Ext-debug.apk
             app/build/outputs/apk/release/PixelSpoof-Ext-release.apk
             app/build/outputs/apk/release/PixelSpoof-Ext-release-unsigned.apk
           draft: false
-          prerelease: ${{ steps.tag_name.outputs.tag == 'latest' }}
+          prerelease: "${{ steps.tag_name.outputs.tag == 'latest' }}"
+          fail_on_unmatched_files: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
