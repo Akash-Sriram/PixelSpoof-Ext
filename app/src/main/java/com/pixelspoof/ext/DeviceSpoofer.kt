@@ -47,8 +47,8 @@ object DeviceSpoofer {
     private const val ANDROID_17_SDK_INT = 37
 
     private const val NOTIFY_ID = 0x50495846 // 'PIXF'
-    private const val CHANNEL_ID = "pixelify_infinity_device_spoof"
-    private const val CHANNEL_NAME = "Pixelify Infinity"
+    private const val CHANNEL_ID = "pixelspoof_ext_device_spoof"
+    private const val CHANNEL_NAME = "PixelSpoof-Ext"
 
     private val failureUiShown = AtomicBoolean(false)
     private val hiddenApiExempted = AtomicBoolean(false)
@@ -499,7 +499,7 @@ object DeviceSpoofer {
             return
         }
 
-        val title = "Pixelify Infinity"
+        val title = "PixelSpoof-Ext"
         val detail = failed.take(4).joinToString()
         val more = if (failed.size > 4) " (+${failed.size - 4})" else ""
         val text = buildSpoofFailureText(app, deviceName, detail, more)
@@ -549,7 +549,7 @@ object DeviceSpoofer {
                     CHANNEL_NAME,
                     NotificationManager.IMPORTANCE_HIGH,
                 ).apply {
-                    description = "Device spoof diagnostics for Pixelify Infinity"
+                    description = "Device spoof diagnostics for PixelSpoof-Ext"
                 },
             )
         }
