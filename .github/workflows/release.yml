@@ -28,7 +28,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Decode Keystore
-        if: secrets.SIGNING_KEY != ''
+        if: "${{ secrets.SIGNING_KEY != '' }}"
         env:
           ENCODED_STRING: "${{ secrets.SIGNING_KEY }}"
         run: |
